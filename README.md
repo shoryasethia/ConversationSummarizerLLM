@@ -148,3 +148,8 @@ lora_config = LoraConfig(
 > - rouge2: 1.13980578970623214%
 > - rougeL: 1.631214528504942%
 > - rougeLsum: 2.5820780787278435%
+
+> Reference/Proof of these values : https://github.com/shoryasethia/ConversationSummarizerLLM/tree/main/output
+
+If there was anything that helped you, then do hit a like.  
+ 
