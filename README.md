@@ -44,6 +44,82 @@ model_name = 'google/flan-t5-base'
 original_model = AutoModelForSeq2SeqLM.from_pretrained(model_name, torch_dtype = torch.bfloat16)
 ```
 # PEFT (Parameter Efficient Fine Tuning) - LoRA
+## **LoRA Cofigurations I used for Fine Tuning**
+
+**To get target modules, run following**
+```
+print(original_model)
+```
+Output for `google/pegasus-xsum`
+```
+PegasusForConditionalGeneration(
+  (model): PegasusModel(
+    (shared): Embedding(96103, 1024, padding_idx=0)
+    (encoder): PegasusEncoder(
+      (embed_tokens): Embedding(96103, 1024, padding_idx=0)
+      (embed_positions): PegasusSinusoidalPositionalEmbedding(512, 1024)
+      (layers): ModuleList(
+        (0-15): 16 x PegasusEncoderLayer(
+          (self_attn): PegasusAttention(
+            (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          )
+          (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (activation_fn): ReLU()
+          (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+          (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+          (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    )
+    (decoder): PegasusDecoder(
+      (embed_tokens): Embedding(96103, 1024, padding_idx=0)
+      (embed_positions): PegasusSinusoidalPositionalEmbedding(512, 1024)
+      (layers): ModuleList(
+        (0-15): 16 x PegasusDecoderLayer(
+          (self_attn): PegasusAttention(
+            (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          )
+          (activation_fn): ReLU()
+          (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (encoder_attn): PegasusAttention(
+            (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          )
+          (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+          (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+          (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (lm_head): Linear(in_features=1024, out_features=96103, bias=False)
+)
+```
+> I have just used q_proj and v_proj, and paramters of k_proj, other dense layer or any other parameters are kept freezed
+> 
+```
+lora_config = LoraConfig(
+    r=32, #Rank
+    lora_alpha=32,
+    target_modules=['q_proj',
+                    'v_proj',],
+    bias="none",
+    lora_dropout=0.05,  # Conventional
+    task_type=TaskType.SEQ_2_SEQ_LM   #pegasus
+)
+```
+## Results
 
 | Model    | Rouge1   | Bleu    | Notebook    | FT Checkpoints    |
 |-------------|-------------|-------------|-------------|-------------|
