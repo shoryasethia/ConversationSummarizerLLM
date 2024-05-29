@@ -126,9 +126,9 @@ lora_config = LoraConfig(
 | Model    | Rouge1   | Bleu    | Notebook    | FT Checkpoints    |
 |-------------|-------------|-------------|-------------|-------------|
 | pegasus-xsum|0.1960458975298376| 0.39602403633577834 | - | - |
-| pegasus-peft-lora-dialogsum| 0.25098017644738956| 0.43713359476346771| [.ipynb](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/Pegasus_PEFT_LoRA_DialogSum.ipynb) [Colab](https://colab.research.google.com/drive/1F_8nRmp_b7bHFSZh7c7G04Fg3WrQtrFa)| [🔗](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/pegasus-peft-lora-dialogsum-checkpoints.zip)|
+| pegasus-peft-lora-dialogsum| 0.25098017644738956| 0.43713359476346771| [.ipynb](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/Pegasus_PEFT_LoRA_DialogSum.ipynb) , [Google Colab](https://colab.research.google.com/drive/1F_8nRmp_b7bHFSZh7c7G04Fg3WrQtrFa)| [🔗](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/pegasus-peft-lora-dialogsum-checkpoints.zip)|
 | flan-t5-base| 0.37651698036006545| 0.1550404559570942| - | - |
-| flan-t5-peft-lora-dialogsum| 0.42925850100353405| 0.19056854347856564| [.ipynb](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/FLAN-T5-PEFT-LoRA-DialogSum.ipynb) [Colab](https://colab.research.google.com/drive/1YRYPBU4kvRzCXuDh8VKvGIlSQ3nqxQA_?authuser=1)| [🔗](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/flan-t5-peft-lora-dialogsum-checkpoints.zip)|
+| flan-t5-peft-lora-dialogsum| 0.42925850100353405| 0.19056854347856564| [.ipynb](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/FLAN-T5-PEFT-LoRA-DialogSum.ipynb) , [Google Colab](https://colab.research.google.com/drive/1YRYPBU4kvRzCXuDh8VKvGIlSQ3nqxQA_?authuser=1)| [🔗](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/flan-t5-peft-lora-dialogsum-checkpoints.zip)|
 
 > **Fine tuning Pegasus :**
 > Absolute percentage improvement of PEFT MODEL over ORIGINAL MODEL
