@@ -51,3 +51,10 @@ original_model = AutoModelForSeq2SeqLM.from_pretrained(model_name, torch_dtype =
 | pegasus-peft-lora-dialogsum| 0.25098017644738956| 0.43713359476346771| [.ipynb](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/Pegasus_PEFT_LoRA_DialogSum.ipynb)| [🔗](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/pegasus-peft-lora-dialogsum-checkpoints.zip)|
 | flan-t5-base| 0.37651698036006545| 0.1550404559570942| - | - |
 | flan-t5-peft-lora-dialogsum| 0.42925850100353405| 0.19056854347856564| [.ipynb](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/FLAN-T5-PEFT-LoRA-DialogSum.ipynb)| [🔗](https://github.com/shoryasethia/ConversationSummarizerLLM/blob/main/flan-t5-peft-lora-dialogsum-checkpoints.zip)|
+
+> Fine tuning Pegasus
+> Absolute percentage improvement of PEFT MODEL over ORIGINAL MODEL
+> - rouge1: 28.5065721082448025%
+> - rouge2: 1.3583623289828225%
+> - rougeL: 2.7046748437383954%
+> - rougeLsum: 9.6404848848455602%
