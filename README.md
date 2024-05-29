@@ -1,5 +1,6 @@
 # AIM : Conversation Summarization for Context Window Optimization in RAG-LLMs
 Models like FLAN-T5, Pegasus when fine-tuned on specific datasets like DialogSum, are specialized to handle summaries of conversations. This approach can indeed be highly useful in scenarios where managing the context window size is crucial, such as with Retrieval-Augmented Generation (RAG) models and other language models with limited context windows.
+> **This repo is simpler execution of the ideas/methods mentioned in [this](https://community.openai.com/t/how-to-construct-the-prompt-for-a-standalone-question/177048) OpenAI's blog**
 
 **Context Window Optimization with Summarization**
 By summarizing conversations, one can effectively reduce the amount of text that needs to be fed into the context window of the language model. This not only helps in managing the limited context size but also ensures that the most relevant information is retained. Here’s how this approach can be beneficial and implemented:
@@ -18,6 +19,7 @@ By summarizing conversations, one can effectively reduce the amount of text that
 - **Feed Summarized Conversations:** Integrate these summaries into the context window along with the most recent interaction to maintain continuity.
 
 > This method can be particularly beneficial for applications involving long-term user interactions, such as customer support, personal assistants, and other conversational AI systems. By focusing on summarization, you can effectively manage and enhance the context provided to the model, leading to more coherent and contextually appropriate responses.
+
 
 # For this I Fine Tuned `google/pegasus-xsum` and `google/flan-t5-base` pre-trained LM on `knkarthick/dialogsum` dataset
 
