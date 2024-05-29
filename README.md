@@ -1,3 +1,8 @@
+**Clone Repo**
+```
+git clone https://github.com/shoryasethia/ConversationSummarizerLLM
+```
+
 # AIM : Conversation Summarization for Context Window Optimization in RAG-LLMs
 Models like FLAN-T5, Pegasus when fine-tuned on specific datasets like DialogSum, are specialized to handle summaries of conversations. This approach can indeed be highly useful in scenarios where managing the context window size is crucial, such as with Retrieval-Augmented Generation (RAG) models and other language models with limited context windows.
 > **This repo is simpler execution of the ideas/methods mentioned in [this](https://community.openai.com/t/how-to-construct-the-prompt-for-a-standalone-question/177048) OpenAI's blog**
